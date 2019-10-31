@@ -1,9 +1,0 @@
-<h1>Welcome  </h1>
-<p>BIENVENUE ! Voilà tous les gossips de ces derniers jours, tiens toi prêt ça décoiffe ! </p>
-
-<p> <% @gossips.each do |gossip| %>
-      <p> <%= gossip.title %> écrit par <%= gossip.user.first_name %> </p>
-      <p> <%= link_to "accède ici à la page de ce gossip", gossip_page_path(gossip.id) %>
-      <% end %>
-</p>
-

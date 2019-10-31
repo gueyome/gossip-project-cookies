@@ -1,7 +1,0 @@
-<h1>Voilà le détail de ce gossip </h1>
-<p>Ce Gossip a pour titre "<%= @gossip.title %>" et a été écrit par <%= link_to "#{@gossip.user.first_name}", user_page_path(@gossip.user.id) %> le <%= @gossip.created_at %> </p>
-<h2>Voilà son contenu </h2>
-<p> <%= @gossip.content %> </p>
-
-
-
