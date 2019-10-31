@@ -22,10 +22,12 @@
 <br>
 
 <br>
+<% if current_user == Gossip.find(params[:id]).user %>
 <h3>Tu veux modifier ce Gossip ?</h3>
 <a href="<%= gossip_path(@gossip.id) %>/edit" class = "btn btn-warning" data-confirm = "Etes vous sure de vouloir modifier ce gossip?" data-method = "GET">Modifer</a>
 <br>
 <br>
+<% end %>
 
 <h2>Liste des commentaires sur ce gossip</h2>
 <br>
