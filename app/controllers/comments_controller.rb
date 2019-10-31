@@ -17,8 +17,9 @@ class CommentsController < ApplicationController
   def create
     puts content_form = params["comment"]["content_form"]
     puts gossip_id = params["gossip_id"]
-    user_id_form = 22
-    @comment = Comment.new(content: content_form, user_id: user_id_form, gossip_id: gossip_id)
+    #user_id_form = 22
+    current_id = session[:user_id]
+    @comment = Comment.new(content: content_form, user_id: current_id, gossip_id: gossip_id)
     
     if @comment.save
       flash[:success] = "Le Commentaire a bien été créé"

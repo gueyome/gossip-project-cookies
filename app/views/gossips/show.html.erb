@@ -6,7 +6,7 @@
 <br>
 <ul class="list-group">
   <li class="list-group-item list-group-item-primary">Ce Gossip a pour titre "<%= @gossip.title %>"</li>
-  <li class="list-group-item list-group-item-secondary">Son auteur est <%= link_to "#{@gossip.user.first_name}", user_page_path(@gossip.user.id) %></li>
+  <li class="list-group-item list-group-item-secondary">Son auteur est <%= link_to "#{@gossip.user.first_name}", user_path(@gossip.user.id) %></li>
   <li class="list-group-item list-group-item-success">Il vient de <%= @gossip.user.city.name %></li>
   <li class="list-group-item list-group-item-danger">Il l'a écrit le <%= @gossip.created_at %></li>
   <li class="list-group-item list-group-item-warning">Contenu du Gossip: <%= @gossip.content %></li>

@@ -22,8 +22,9 @@ class GossipsController < ApplicationController
     # Une fois la création faite, on redirige généralement vers la méthode show (pour afficher le potin créé)
     puts params
     title_form = params["title"]
-    content_form = params["comment"]["content_form"]
-    @gossip = Gossip.new(title: title_form, content: content_form, user_id: 22)
+    content_form = params["content"]
+    current_id = session[:user_id]
+    @gossip = Gossip.new(title: title_form, content: content_form, user_id: current_id)
     
     if @gossip.save # essaie de sauvegarder en base @gossip
       # si ça marche, il redirige vers la page d'index du site

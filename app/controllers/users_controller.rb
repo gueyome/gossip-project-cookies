@@ -21,9 +21,10 @@ class UsersController < ApplicationController
     # pour info, le contenu de ce formulaire sera accessible dans le hash params (ton meilleur pote)
     # Une fois la création faite, on redirige généralement vers la méthode show (pour afficher le potin créé)
     puts params
-    @user = User.new(password: params["password"], password_confirmation: params["password_confirmation"], city_id: City.all.sample.id)
+    @user = User.new(email: params["email"], password: params["password"], password_confirmation: params["password_confirmation"], city_id: City.all.sample.id)
     if @user.save
       flash[:success] = "Votre compte a bien été créé"
+      session[:user_id] = @user.id
       redirect_to root_path
     else
       render "new"
