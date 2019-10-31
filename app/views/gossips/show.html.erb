@@ -1,5 +1,8 @@
-<% if flash[:success] == 'Le Gossip a bien été modifié' || flash[:success] == 'Le Commentaire a bien été créé' || flash[:success] == 'Le Commentaire a bien été supprimé' %>
+<% if flash[:success] == 'Le Gossip a bien été modifié' || flash[:success] == 'Le Commentaire a bien été créé' || flash[:success] == 'Le Commentaire a bien été supprimé' || flash[:success] == "Vous n'êtes pas le créateur de ce Gossip" %>
 <div class="alert alert-success" role="alert"><%= flash[:success] %></div>
+<% end %>
+<% if flash[:danger] == "Vous n'êtes pas le créateur de ce Gossip" %>
+<div class="alert alert-danger" role="alert"><%= flash[:danger] %></div>
 <% end %>
 
 <h2>Voilà le détail de ce gossip mes amis</h2>

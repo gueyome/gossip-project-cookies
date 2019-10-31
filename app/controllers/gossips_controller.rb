@@ -1,5 +1,6 @@
 class GossipsController < ApplicationController
-  before_action :authenticate_user, only: [:show, :new]
+  before_action :authenticate_user, only: [:show, :new, :edit, :update]
+  before_action :authenticate_user_correct, only: [:edit, :update, :destroy]
 
   def index
     @gossips = Gossip.all
@@ -61,6 +62,14 @@ class GossipsController < ApplicationController
       redirect_to new_session_path
     end
   end
+
+  def authenticate_user_correct
+    unless current_user == Gossip.find(params[:id]).user
+      flash[:danger] = "Vous n'êtes pas le créateur de ce Gossip"
+      redirect_to gossip_path(params[:id])
+    end
+  end
+
 
 
 

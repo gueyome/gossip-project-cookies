@@ -57,5 +57,22 @@ class CommentsController < ApplicationController
     end
   end
 
+  private
+
+  def authenticate_user
+    unless current_user
+      flash[:danger] = "Il faut se connecter pour effectuer cette action"
+      redirect_to new_session_path
+    end
+  end
+
+  def authenticate_user_correct
+    unless current_user == Gossip.find(params[:id]).user
+      flash[:danger] = "Vous n'êtes pas le créateur de ce Gossip"
+      redirect_to gossip_path(params[:id])
+    end
+  end
+
+
 
 end
