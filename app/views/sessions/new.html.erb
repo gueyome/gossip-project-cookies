@@ -1,6 +1,9 @@
-<% if flash.now[:danger] == 'Invalid email/password combination' %>
+<% if flash.now[:danger] == 'Invalid email/password combination' %> 
 <div class="alert alert-danger" role="alert"><%= flash.now[:danger] %></div>
+<% elsif flash[:danger] == "Il faut se connecter pour effectuer cette action" %>
+<div class="alert alert-danger" role="alert"><%= flash[:danger] %></div>
 <% end %>
+
 
 
 <h1>Connecte toi au Gossip Project ici ! </h1>

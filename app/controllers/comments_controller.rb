@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
-  
+  before_action :authenticate_user, only: [:create]
+
   def index
     @comments = Comment.all
   end
@@ -17,7 +18,6 @@ class CommentsController < ApplicationController
   def create
     puts content_form = params["comment"]["content_form"]
     puts gossip_id = params["gossip_id"]
-    #user_id_form = 22
     current_id = session[:user_id]
     @comment = Comment.new(content: content_form, user_id: current_id, gossip_id: gossip_id)
     
