@@ -18,7 +18,7 @@ Tag.destroy_all
 
 10.times do |index|
   c = City.create(name: Faker::Nation.capital_city, zip_code: Faker::Code.nric)
-  u = User.create(first_name: Faker::Name.name, last_name: Faker::Name.last_name, description: Faker::Movie.quote, email: Faker::Internet.email, age: Faker::Number.between(from: 20, to: 50), city_id: c.id)
+  u = User.create(first_name: Faker::Name.name, last_name: Faker::Name.last_name, description: Faker::Movie.quote, email: Faker::Internet.email, age: Faker::Number.between(from: 20, to: 50), city_id: City.all.sample.id, password: "password", password_confirmation: "password")
 end
 
 20.times do |index|
